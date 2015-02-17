@@ -1,1 +1,66 @@
-abcdefg
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body { margin:0px; background-image:url(pics/bg.jpg) no-repeat;
+}
+#prlx_lyr_1 {
+	position:fixed;
+	background:url(pics/lg.jpg) no-repeat 200px 200px;
+	width:100%;
+	height:800px;
+}
+#prlx_lyr_2 {
+	position:fixed;
+	background:url(pics/wm.jpg) no-repeat 0px 200px;
+	width:100%;
+	height:1500px;
+}
+#content_layer { position:absolute; 
+}
+div#peekaboo{
+    position:fixed;
+    bottom:0px;
+    right:-352px;
+    background: #C4E6FF;
+    padding:25px;
+    width:300px;
+    height:200px;
+    font-size:48px;
+}
+</style>
+<script>
+function parallax(){
+	var prlx_lyr_1 = document.getElementById('prlx_lyr_1');
+	var prlx_lyr_2 = document.getElementById('prlx_lyr_2');
+	prlx_lyr_1.style.top = (window.pageYOffset / 4)+'px';
+	prlx_lyr_2.style.top = -(window.pageYOffset / 7)+'px';
+}
+window.addEventListener("scroll", parallax, false);
+
+function yScrollHandler() {
+	var win = document.getElementById("peekaboo");
+	if((window.pageYOffset + window.innerHeight) >= document.body.offsetHeight){
+		win.style.transition = "right 0.7s ease-in-out 0s";
+		win.style.right = "0px";
+	} else {
+		win.style.transition = "right 0.7s ease-in-out 0s";
+		win.style.right = "-452px";
+	}
+}
+window.onscroll = yScrollHandler;
+</script>
+</head>
+<body>
+	<div id="prlx_lyr_1"></div>
+	<div id="prlx_lyr_2"></div>
+	<div>
+    	<h1 style="height:5000px; font-size:30px;">The Red Queen Effect</h1>
+    </div>
+    <div id="peekaboo">
+    	<p>By Navarone!</p>
+    	<p>And Mandy :)</p>
+    </div>
+</body>
+</html>
